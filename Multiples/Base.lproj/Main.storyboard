@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Multiples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,123 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chalkboard" translatesAutoresizingMaskIntoConstraints="NO" id="9TF-MZ-oIp" userLabel="chalkboardBg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MULTIPLES" translatesAutoresizingMaskIntoConstraints="NO" id="IqZ-S9-3bU" userLabel="MULTIPLES logo">
+                                <rect key="frame" x="146" y="62" width="309" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="5hl-As-TBP"/>
+                                    <constraint firstAttribute="width" constant="309" id="aQu-zC-PLt"/>
+                                    <constraint firstAttribute="height" constant="72" id="eXg-cd-YNa"/>
+                                    <constraint firstAttribute="width" constant="533" id="i4y-ha-w2J"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="309" id="qH2-e0-YnA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5hl-As-TBP"/>
+                                        <exclude reference="i4y-ha-w2J"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a number..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mEH-r0-n7s" userLabel="numberEnterTextField">
+                                <rect key="frame" x="180" y="322" width="264" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="264" id="T3C-oq-Y6o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Click the add button!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRK-8n-6sy" userLabel="addButtonTextLabel">
+                                <rect key="frame" x="143" y="75" width="314" height="46"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="29"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6W-nc-s5K" userLabel="resultsFieldLabel">
+                                <rect key="frame" x="188" y="188" width="248" height="49"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XlM-RB-P7l">
+                                <rect key="frame" x="221" y="390" width="159" height="157"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="159" id="5EC-E4-Br6"/>
+                                    <constraint firstAttribute="height" constant="157" id="r2n-jB-ga5"/>
+                                </constraints>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="onPlayButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PsF-1i-jg0"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5a-zI-ReU">
+                                <rect key="frame" x="165" y="408" width="294" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="294" id="Soq-eJ-N8E"/>
+                                    <constraint firstAttribute="height" constant="109" id="ueq-mg-0DT"/>
+                                </constraints>
+                                <state key="normal" image="add"/>
+                                <connections>
+                                    <action selector="onAddButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iQs-CX-9Ox"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XlM-RB-P7l" secondAttribute="bottom" constant="53" id="1B1-kh-xbU"/>
+                            <constraint firstItem="XlM-RB-P7l" firstAttribute="top" secondItem="mEH-r0-n7s" secondAttribute="bottom" constant="38" id="1hX-gh-EeJ"/>
+                            <constraint firstItem="n6W-nc-s5K" firstAttribute="centerX" secondItem="qRK-8n-6sy" secondAttribute="centerX" id="9XB-gl-HFg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9TF-MZ-oIp" secondAttribute="trailing" constant="-20" id="9xC-O5-51e"/>
+                            <constraint firstItem="IqZ-S9-3bU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="E59-mR-HN4"/>
+                            <constraint firstItem="XlM-RB-P7l" firstAttribute="centerX" secondItem="mEH-r0-n7s" secondAttribute="centerX" id="HNf-YL-Tgo"/>
+                            <constraint firstItem="mEH-r0-n7s" firstAttribute="top" secondItem="n6W-nc-s5K" secondAttribute="bottom" constant="85" id="HmF-ye-aC0"/>
+                            <constraint firstItem="IqZ-S9-3bU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hn1-Zl-F29"/>
+                            <constraint firstItem="qRK-8n-6sy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="JNM-bh-TNm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9TF-MZ-oIp" secondAttribute="bottom" id="Lw9-Yj-301"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9TF-MZ-oIp" secondAttribute="bottom" id="M1D-zr-ICf"/>
+                            <constraint firstItem="mEH-r0-n7s" firstAttribute="centerX" secondItem="qRK-8n-6sy" secondAttribute="centerX" id="QZC-PJ-h2g"/>
+                            <constraint firstItem="XlM-RB-P7l" firstAttribute="top" secondItem="mEH-r0-n7s" secondAttribute="bottom" constant="38" id="SKM-54-6Sf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XlM-RB-P7l" secondAttribute="bottom" constant="53" id="Szf-WV-BOd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9TF-MZ-oIp" secondAttribute="bottom" id="Tr3-Wt-XoN"/>
+                            <constraint firstItem="IqZ-S9-3bU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="afX-ZJ-qSF"/>
+                            <constraint firstItem="G5a-zI-ReU" firstAttribute="centerX" secondItem="mEH-r0-n7s" secondAttribute="centerX" id="b8i-oG-DI1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G5a-zI-ReU" secondAttribute="bottom" constant="83" id="dnw-9n-VhI"/>
+                            <constraint firstItem="IqZ-S9-3bU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="dxW-Qf-Nk8"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9TF-MZ-oIp" secondAttribute="bottom" id="gqC-Qe-kJg"/>
+                            <constraint firstItem="mEH-r0-n7s" firstAttribute="centerX" secondItem="9TF-MZ-oIp" secondAttribute="centerX" id="hbB-fP-50z"/>
+                            <constraint firstItem="9TF-MZ-oIp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="m79-1O-0Jv"/>
+                            <constraint firstItem="9TF-MZ-oIp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="s0l-xG-JjI"/>
+                            <constraint firstItem="IqZ-S9-3bU" firstAttribute="centerX" secondItem="9TF-MZ-oIp" secondAttribute="centerX" id="v9i-Ym-Vhh"/>
+                            <constraint firstItem="G5a-zI-ReU" firstAttribute="centerX" secondItem="qRK-8n-6sy" secondAttribute="centerX" id="zWv-G2-iXn"/>
+                            <constraint firstItem="9TF-MZ-oIp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="zjD-9p-70W"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="afX-ZJ-qSF"/>
+                                <exclude reference="dxW-Qf-Nk8"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="G5a-zI-ReU" id="ZYo-Kb-1MJ"/>
+                        <outlet property="addButtonLogo" destination="qRK-8n-6sy" id="csR-4u-qQc"/>
+                        <outlet property="multiplesLogo" destination="IqZ-S9-3bU" id="EtI-g6-Iij"/>
+                        <outlet property="playButton" destination="XlM-RB-P7l" id="V5n-DA-hfC"/>
+                        <outlet property="resultsFieldLabel" destination="n6W-nc-s5K" id="xny-MW-kSQ"/>
+                        <outlet property="textField" destination="mEH-r0-n7s" id="NB3-Kq-ntL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-68" y="368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MULTIPLES" width="533" height="124"/>
+        <image name="add" width="211" height="101"/>
+        <image name="chalkboard" width="801" height="750"/>
+        <image name="play" width="272" height="268"/>
+    </resources>
 </document>
